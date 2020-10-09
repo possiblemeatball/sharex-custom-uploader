@@ -105,8 +105,7 @@ echo sprintf('%1.2f', $bytes / pow($base, $class)) . ' ' . $si_prefix[$class] . 
 		<p style="font-size: 10px; margin-bottom: 8px;">
 			<span style="color: #7289da">meatball#0001</span> - Notice anything
 			here that shouldn't be? <a href="mailto:abuse@like2eat.rocks">abuse@like2eat.rocks</a>
-			- <a href="https://github.com/RoeeLupo/sharex-custom-uploader">forked
-				from RoeeLupo on GitHub</a>
+			- <a href="https://github.com/possiblemeatball/sharex-custom-uploader">view our source code</a>
 	
 	</div>
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"
