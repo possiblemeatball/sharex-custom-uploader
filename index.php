@@ -81,10 +81,10 @@ echo sprintf('%1.2f', $bytes / pow($base, $class)) . ' ' . $si_prefix[$class] . 
             $factor = floor((strlen($bytes) - 1) / 3);
             return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor] . "B";
         }
-        ?>
-		        	<?php
 
-        foreach (get_files() as $file) {
+        if (! ($files = get_files()))
+            die("We are currently undergoing maintenance and, as a consequence, are unable to serve our files at this current moment. <br /> We apologize for the downtime.");
+        foreach ($files as $file) {
             $filename = $file['filename'];
             $name = explode(".", $filename);
             $name = current($name);
@@ -103,9 +103,12 @@ echo sprintf('%1.2f', $bytes / pow($base, $class)) . ' ' . $si_prefix[$class] . 
 		</table>
 		<hr style="margin-bottom: 8px; margin-top: 24px;" />
 		<p style="font-size: 10px; margin-bottom: 8px;">
-			Interested? <a href="https://discordapp.com/users/555553450583130117"><span style="color: #7289da">meatball#0001</span></a> - Notice anything
-			here that shouldn't be? <a href="mailto:abuse@like2eat.rocks">abuse@like2eat.rocks</a>
-			- <a href="https://github.com/possiblemeatball/sharex-custom-uploader">view our source code</a>
+			Notice anything here that shouldn't be? <a
+				href="mailto:abuse@like2eat.rocks">abuse@like2eat.rocks</a> -
+			Interested? <a href="https://discordapp.com/users/555553450583130117"><span
+				style="color: #7289da">Contact meatball#0001 on Discord</span></a> -
+			<a href="https://github.com/possiblemeatball/sharex-custom-uploader">source
+				code</a>
 	
 	</div>
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"

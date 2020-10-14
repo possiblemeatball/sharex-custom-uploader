@@ -4,19 +4,14 @@ $token = $_POST['t'];
 if (! isset($token) || ! check_valid_token($token))
     die(json_encode(array(
         'error' => 'no valid token provided',
-        'debug' => check_valid_token($token)
-    )));
-$uploaded_file = $_FILES['ftu'];
-if (! is_uploaded_file($uploaded_file['tmp_name']))
-    die(json_encode(array(
-        'error' => 'no valid file provided',
         'debug' => ''
     )));
-
 $CONFIG = include "config.php";
 
+$uploaded_file = $_FILES['ftu'];
 $ending = explode(".", $uploaded_file['name']);
 $ending = end($ending);
+
 $valid_extension = true;
 $blocked_extensions = array(
     "js",
@@ -71,16 +66,15 @@ if (! move_uploaded_file($uploaded_file['tmp_name'], $target))
         'error' => 'server error moving file',
         'debug' => ''
     )));
-log_file($token, $newfilename);
 // exif data stripping
-if ($ending == "png" || $ending == "jpg" || $ending == "jpeg" || $ending == "gif") {
+try {
     $img = new \Imagick(realpath($target));
-    $img->stripImage();
     $profiles = $img->getImageProfiles("icc", true);
-    if (! empty($profiles)) {
+    $img->stripImage();
+    if (! empty($profiles))
         $img->profileImage("icc", $profiles['icc']);
-    }
-}
+} catch (Exception $ignored) {}
+log_file($token, $newfilename);
 
 $deletion_url = $CONFIG['webfront_url'] . "/scripts/delete.php";
 die(json_encode(array(
