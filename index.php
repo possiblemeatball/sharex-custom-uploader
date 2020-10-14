@@ -103,7 +103,7 @@ echo sprintf('%1.2f', $bytes / pow($base, $class)) . ' ' . $si_prefix[$class] . 
 		</table>
 		<hr style="margin-bottom: 8px; margin-top: 24px;" />
 		<p style="font-size: 10px; margin-bottom: 8px;">
-			<span style="color: #7289da">meatball#0001</span> - Notice anything
+			Interested? <a href="https://discordapp.com/users/555553450583130117"><span style="color: #7289da">meatball#0001</span></a> - Notice anything
 			here that shouldn't be? <a href="mailto:abuse@like2eat.rocks">abuse@like2eat.rocks</a>
 			- <a href="https://github.com/possiblemeatball/sharex-custom-uploader">view our source code</a>
 	
